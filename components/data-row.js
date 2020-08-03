@@ -10,7 +10,7 @@ const DataRow = ({
 }) => (
   <div className="dataRow">
     <p className={loading ? 'loading' : ''}>
-      <Link href={`/customers/${id}`}>
+      <Link href="/customers/[id]" as={`/customers/${id}`}>
         <a>
           {firstName} {lastName}
         </a>

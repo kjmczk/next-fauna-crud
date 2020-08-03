@@ -41,7 +41,7 @@ const Customer = () => {
           <p className="num">{data.creditCard.number}</p>
 
           <div className="buttons">
-            <Link href={`/customers/${id}/update`}>
+            <Link href="/customers/[id]/update" as={`/customers/${id}/update`}>
               <a className="editButton">Edit</a>
             </Link>
             <button onClick={onClick} className="deleteButton">
