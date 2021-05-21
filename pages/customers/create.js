@@ -6,7 +6,11 @@ import Layout from '../../components/layout';
 const Create = () => {
   const [errorMessage, setErrorMessage] = useState('');
 
-  const { handleSubmit, register, errors } = useForm();
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm();
 
   const onSubmit = handleSubmit(async (formData) => {
     if (errorMessage) setErrorMessage('');
@@ -39,9 +43,8 @@ const Create = () => {
           <label>First Name</label>
           <input
             type="text"
-            name="firstName"
             placeholder="e.g. John"
-            ref={register({ required: 'First Name is required' })}
+            {...register('firstName', { required: 'First Name is required' })}
           />
           {errors.firstName && (
             <span role="alert" className="error">
@@ -54,9 +57,8 @@ const Create = () => {
           <label>Last Name</label>
           <input
             type="text"
-            name="lastName"
             placeholder="e.g. Doe"
-            ref={register({ required: 'Last Name is required' })}
+            {...register('lastName', { required: 'Last Name is required' })}
           />
           {errors.lastName && (
             <span role="alert" className="error">
@@ -69,9 +71,8 @@ const Create = () => {
           <label>Telephone</label>
           <input
             type="text"
-            name="telephone"
             placeholder="e.g. 123-456-7890"
-            ref={register}
+            {...register('telephone')}
           />
           {errors.telephone && (
             <span role="alert" className="error">
@@ -84,9 +85,8 @@ const Create = () => {
           <label>Credit Card Number</label>
           <input
             type="text"
-            name="creditCardNumber"
             placeholder="e.g. 1234567890123456"
-            ref={register}
+            {...register('creditCardNumber')}
           />
           {errors.creditCardNumber && (
             <span role="alert" className="error">
